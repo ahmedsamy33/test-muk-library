@@ -196,7 +196,6 @@ export class AppComponent {
       color: MukThemePalette.Primary,
       matType: MukButtonTypes.Raised,
       type: ButtonType.Submit,
-      onClick: (params:any) => this.onDialogTakeAction(params),
       toolTip: {
         position: TooltipPositions.Below,
         toolTip: 'Test',
@@ -213,7 +212,6 @@ export class AppComponent {
         position: TooltipPositions.Below,
         toolTip: 'Test',
       },
-      onClick: (params:any) => this.onDialogTakeAction(params),
       className:"mx-2"
     },
   ];
@@ -239,6 +237,12 @@ export class AppComponent {
           formFields: this.formFields,
           buttons: this.buttons,
           buttonClass: this.buttonClass,
+          isFormDialog:true
+        },
+        onTakeAction:(res:IButtonEvent)=>{ 
+          res.buttonConfig.isLoading=false;         
+          res.buttonConfig.isDisabled=false;         
+          DIALOG.close()
         }
       }
     })
