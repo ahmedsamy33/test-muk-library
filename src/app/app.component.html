@@ -1,0 +1,8 @@
+<lib-muk-table
+  [config]="tableConfig"
+  [contents]="[userNameContent]"
+  (paginatorChange)="onPaginatorChange($event)"
+  (takeAction)="onTakeAction($event)"
+  (sortChange)="onSortChange($event)">
+  <ng-template #userNameContent let-item="item"> Eng/{{item.name}} </ng-template>
+</lib-muk-table>
